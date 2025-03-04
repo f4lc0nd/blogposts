@@ -1,0 +1,136 @@
+---
+title: Building a Simple React Component Library
+date: 2024-10-27
+tags: [react, component library, mdx]
+---
+
+# Building a Simple React Component Library
+
+Creating a component library can significantly improve code reusability and maintainability in your React projects. In this article, we'll walk through the steps of building a simple component library.
+
+## Setting Up the Project
+
+First, let's create a new React project using `create-react-app` or your preferred setup.
+
+```bash
+npx create-react-app my-component-library
+cd my-component-library
+```
+
+Absolutely! Let's create two articles using MDX, focusing on different subjects to showcase the versatility of MDX.
+
+Article 1: "Building a Simple React Component Library"
+
+Code snippet
+
+---
+
+title: Building a Simple React Component Library
+date: 2024-10-27
+tags: [react, component library, mdx]
+
+---
+
+# Building a Simple React Component Library
+
+Creating a component library can significantly improve code reusability and maintainability in your React projects. In this article, we'll walk through the steps of building a simple component library.
+
+## Setting Up the Project
+
+First, let's create a new React project using `create-react-app` or your preferred setup.
+
+```bash
+npx create-react-app my-component-library
+cd my-component-library
+```
+
+- Next, create a src/components directory to house our components.
+
+#### Creating a Button Component
+
+- Let's start with a simple button component. Create a file named src/components/Button.js:
+
+```tsx
+// src/components/Button.js
+import React from "react";
+
+const Button = ({ children, onClick }) => {
+  return (
+    <button
+      style={{
+        padding: "10px 20px",
+        backgroundColor: "#007bff",
+        color: "white",
+        border: "none",
+        borderRadius: "5px",
+        cursor: "pointer",
+      }}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+};
+
+export default Button;
+```
+
+- Creating an Input Component
+  Now, let's add an input component. Create src/components/Input.js:
+
+```tsx
+// src/components/Input.js
+import React from "react";
+
+const Input = ({ placeholder, value, onChange }) => {
+  return (
+    <input
+      style={{ padding: "8px", border: "1px solid #ccc", borderRadius: "4px" }}
+      placeholder={placeholder}
+      value={value}
+      onChange={onChange}
+    />
+  );
+};
+
+export default Input;
+```
+
+- Exporting Components
+  Create an index.js file in the src/components directory to export our components:
+
+```tsx
+// src/components/index.js
+export { default as Button } from "./Button";
+export { default as Input } from "./Input";
+```
+
+- Using the Components
+  Now, you can use these components in your App.js:
+
+```tsx
+// src/App.js
+import React, { useState } from "react";
+import { Button, Input } from "./components";
+
+function App() {
+  const [inputValue, setInputValue] = useState("");
+
+  return (
+    <div style={{ padding: "20px" }}>
+      <Button onClick={() => alert("Button clicked!")}>Click me</Button>
+      <Input
+        placeholder="Enter text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
+      <p>Input Value: {inputValue}</p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+- Conclusion
+  This is a basic example, but you can expand this library with more complex components and styles. Remember to document your components using tools like Storybook or MDX itself for better collaboration and maintainability.

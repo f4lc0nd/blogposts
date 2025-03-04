@@ -1,0 +1,73 @@
+---
+title: Exploring the Fundamentals of Functional Programming in JavaScript
+date: 2024-10-28
+tags: [javascript, functional programming, mdx]
+---
+
+# Exploring the Fundamentals of Functional Programming in JavaScript
+
+Functional programming (FP) is a paradigm that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data. In JavaScript, FP can lead to cleaner, more predictable code.
+
+## Key Concepts
+
+### Pure Functions
+
+A pure function always returns the same output for the same input and has no side effects.
+
+```tsx
+// Pure Function
+function add(a, b) {
+  return a + b;
+}
+console.log(add(2, 3)); // Output: 5
+```
+
+- Immutability
+  Immutability means that data cannot be changed after it's created. This prevents accidental state changes.
+
+```js
+// Immutability example using spread operator
+const originalArray = [1, 2, 3];
+const newArray = [...originalArray, 4];
+
+console.log(originalArray); // Output: [1, 2, 3]
+console.log(newArray); // Output: [1, 2, 3, 4]
+```
+
+- Higher-Order Functions
+  Higher-order functions are functions that can take other functions as arguments or return them as results. 1
+
+1.  sumit-ghosh.com
+    sumit-ghosh.com
+
+```js
+// Higher-Order Function example: map
+const numbers = [1, 2, 3];
+const squaredNumbers = numbers.map((num) => num * num);
+
+console.log(squaredNumbers); // Output: [1, 4, 9]
+```
+
+- Composition
+  Function composition is the process of combining two or more functions to produce a new function.
+
+```js
+// Function Composition example
+const double = (x) => x * 2;
+const increment = (x) => x + 1;
+
+const compose = (f, g) => (x) => f(g(x));
+const doubleAndIncrement = compose(double, increment);
+
+console.log(doubleAndIncrement(5)); // Output: 12 (5 + 1 = 6, 6 * 2 = 12)
+```
+
+### Benefits of Functional Programming
+
+Predictability: Pure functions make code easier to reason about.
+Testability: Pure functions are easier to test because they have no side effects.
+Maintainability: Immutability and composition reduce the risk of bugs and make code easier to maintain.
+
+## Conclusion
+
+By embracing functional programming principles, you can write more robust and maintainable JavaScript code. Start experimenting with pure functions, immutability, and higher-order functions to see the benefits in your projects.
